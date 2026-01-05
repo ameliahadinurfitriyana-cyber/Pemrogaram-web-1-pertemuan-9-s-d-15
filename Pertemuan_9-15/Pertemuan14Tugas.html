@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Proyek Akhir - To-Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul {
+            margin-left: 30px;
+            line-height: 2;
+            color: #555;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .tech-badge {
+            background-color: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: #764ba2;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a3a7d;
+            transform: scale(1.05);
+        }
+
+        .info-box {
+            background-color: #e7f3ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .btn {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Laporan Proyek Akhir</h1>
+            <p>Tugas Persiapan Proyek Mini Web Development</p>
+        </div>
+
+        <div class="content">
+            <!-- Informasi Proyek -->
+            <div class="section">
+                <h2>📌 Informasi Proyek</h2>
+                <div class="info-box">
+                    <p><strong>Judul Proyek:</strong> Aplikasi To-Do List Interaktif</p>
+                    <p><strong>Mata Kuliah:</strong> Pemrograman Web 1</p>
+                    <p><strong>Tanggal:</strong> Januari 2026</p>
+                </div>
+            </div>
+
+            <!-- Ide Proyek -->
+            <div class="section">
+                <h2>💡 Ide Proyek</h2>
+                <p>
+                    Proyek yang dipilih adalah <strong>Aplikasi To-Do List</strong>, sebuah aplikasi manajemen tugas
+                    berbasis web yang memungkinkan pengguna untuk menambahkan, menandai, dan menghapus tugas dengan
+                    antarmuka yang sederhana dan intuitif.
+                </p>
+                <p>
+                    To-Do List dipilih karena merupakan aplikasi praktis yang sering digunakan dalam kehidupan
+                    sehari-hari dan dapat mendemonstrasikan kemampuan dasar HTML, CSS, dan JavaScript dalam membangun
+                    aplikasi web interaktif.
+                </p>
+            </div>
+
+            <!-- Tujuan Proyek -->
+            <div class="section">
+                <h2>🎯 Tujuan Proyek</h2>
+                <ul>
+                    <li><strong>Meningkatkan Produktivitas:</strong> Membantu pengguna mengorganisir dan melacak
+                        tugas-tugas mereka secara efisien</li>
+                    <li><strong>User Experience:</strong> Menyediakan antarmuka yang mudah digunakan dan responsif untuk
+                        berbagai perangkat</li>
+                    <li><strong>Pembelajaran:</strong> Mengimplementasikan konsep-konsep fundamental web development
+                        (HTML, CSS, JavaScript)</li>
+                    <li><strong>Interaktivitas:</strong> Mendemonstrasikan manipulasi DOM dan event handling dengan
+                        JavaScript</li>
+                    <li><strong>Best Practices:</strong> Menerapkan prinsip-prinsip clean code dan struktur project yang
+                        terorganisir</li>
+                </ul>
+            </div>
+
+            <!-- Fitur Utama -->
+            <div class="section">
+                <h2>✨ Fitur Utama</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>➕ Tambah Tugas</h4>
+                        <p>Pengguna dapat menambahkan tugas baru dengan mudah melalui input field dan tombol "Add
+                            Task"</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>✅ Tandai Selesai</h4>
+                        <p>Klik pada tugas untuk menandai sebagai selesai dengan efek strikethrough dan perubahan warna
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🗑️ Hapus Tugas</h4>
+                        <p>Setiap tugas memiliki tombol delete untuk menghapus item yang tidak diperlukan</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⌨️ Enter Key Support</h4>
+                        <p>Tekan Enter pada keyboard untuk langsung menambahkan tugas tanpa perlu klik tombol</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📱 Responsive Design</h4>
+                        <p>Tampilan yang optimal di berbagai ukuran layar (desktop, tablet, mobile)</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎨 Clean UI</h4>
+                        <p>Desain modern dengan warna yang menarik dan animasi hover yang smooth</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teknologi yang Digunakan -->
+            <div class="section">
+                <h2>🛠️ Teknologi yang Digunakan</h2>
+                <p>Proyek ini dibangun menggunakan teknologi web fundamental:</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript (ES6+)</span>
+                    <span class="tech-badge">DOM Manipulation</span>
+                    <span class="tech-badge">Event Handling</span>
+                    <span class="tech-badge">Responsive Design</span>
+                </div>
+            </div>
+
+            <!-- Struktur Proyek -->
+            <div class="section">
+                <h2>📁 Struktur Proyek</h2>
+                <p>Proyek ini diorganisir dengan struktur file yang jelas dan terpisah:</p>
+                <ul>
+                    <li><strong>index.html</strong> - Struktur halaman utama aplikasi</li>
+                    <li><strong>styles.css</strong> - Styling dan desain visual aplikasi</li>
+                    <li><strong>script.js</strong> - Logika interaktif dan fungsionalitas aplikasi</li>
+                    <li><strong>wireframe.html</strong> - Wireframe struktur website</li>
+                </ul>
+            </div>
+
+            <!-- Wireframe -->
+            <div class="section">
+                <h2>🖼️ Wireframe</h2>
+                <p>
+                    Wireframe adalah sketsa visual yang menggambarkan layout dan struktur aplikasi To-Do List. Wireframe
+                    ini menunjukkan penempatan elemen-elemen utama seperti header, input section, dan task list.
+                </p>
+            </div>
+
+            <!-- Implementasi -->
+            <div class="section">
+                <h2>💻 Implementasi</h2>
+                <h3>HTML Structure</h3>
+                <p>Menggunakan semantic HTML dengan struktur yang jelas: container utama, input section untuk menambah
+                    tugas, dan unordered list untuk menampilkan daftar tugas.</p>
+
+                <h3>CSS Styling</h3>
+                <p>Desain modern dengan flexbox layout, color scheme yang menarik (hijau untuk tombol add, merah untuk
+                    delete), hover effects, dan responsivitas untuk berbagai ukuran layar.</p>
+
+                <h3>JavaScript Functionality</h3>
+                <p>Menggunakan vanilla JavaScript dengan event listeners untuk interaksi pengguna, DOM manipulation
+                    untuk
+                    menambah/menghapus elemen, dan toggle class untuk menandai tugas selesai.</p>
+            </div>
+
+            <!-- Kesimpulan -->
+            <div class="section">
+                <h2>📊 Kesimpulan</h2>
+                <p>
+                    Aplikasi To-Do List ini merupakan implementasi praktis dari konsep-konsep fundamental web
+                    development. Proyek ini berhasil mendemonstrasikan bagaimana HTML, CSS, dan JavaScript bekerja
+                    bersama untuk menciptakan aplikasi web yang interaktif dan fungsional.
+                </p>
+                <p>
+                    Aplikasi ini dapat dikembangkan lebih lanjut dengan menambahkan fitur seperti local storage untuk
+                    menyimpan data, filtering tugas (semua/selesai/belum selesai), edit tugas, prioritas tugas, dan
+                    integrasi dengan backend untuk sinkronisasi data.
+                </p>
+            </div>
+
+            <!-- Tombol Akses -->
+            <div class="section">
+                <h2>🚀 Akses Proyek</h2>
+                <div class="btn-container">
+                    <a href="todo-list_pertemuan14Tugas/wireframe.html" class="btn btn-secondary" target="_blank">
+                        📐 Lihat Wireframe
+                    </a>
+                    <a href="todo-list_pertemuan14Tugas/index.html" class="btn btn-primary" target="_blank">
+                        ✅ Buka Aplikasi To-Do List
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Tugas Persiapan Proyek Akhir - Pemrograman Web 1</p>
+        </div>
+    </div>
+</body>
+
+</html>

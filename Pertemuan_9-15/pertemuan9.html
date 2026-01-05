@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Dasar</title>
+</head>
+
+<body>
+    <h1 id="judul">Belajar JavaScript</h1>
+    <p id="output"></p>
+
+    <button onclick="tampilkanData()">Tampilkan Data</button>
+
+    <script>
+        // Variabel
+        let nama = "Dewi";
+        let umur = 20;
+        let aktif = true;
+
+        // Fungsi
+        function tampilkanData() {
+            document.getElementById("output").innerHTML =
+                "Nama: " + nama + "<br>Umur: " + umur + "<br>Aktif: " + aktif;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Interaktif</title>
+</head>
+
+<body>
+    <h1 id="judul">Judul Halaman</h1>
+    <p id="paragraf">Ini adalah paragraf awal. Klik tombol untuk mengubah teks.</p>
+
+    <button id="ubahTeks">Ubah Teks</button>
+    <button id="ubahJudul">Ubah Judul</button>
+    <button id="ubahWarna">Ubah Warna</button>
+    <button id="ubahParagraf">Ubah Paragraf</button>
+
+    <script>
+        // Menggunakan getElementById untuk paragraf
+        const paragraf = document.getElementById('paragraf');
+
+        // Menggunakan querySelector untuk judul
+        const judul = document.querySelector('#judul');
+
+        // Menggunakan getElementById untuk tombol
+        const ubahTeksBtn = document.getElementById('ubahTeks');
+        const ubahJudulBtn = document.getElementById('ubahJudul');
+        const ubahWarnaBtn = document.getElementById('ubahWarna');
+        const ubahParagrafBtn = document.getElementById('ubahParagraf');
+
+        // Event listener untuk tombol Ubah Teks (mengubah paragraf)
+        ubahTeksBtn.addEventListener('click', function () {
+            paragraf.textContent = 'Teks paragraf telah diubah melalui tombol Ubah Teks!';
+        });
+
+        // Event listener untuk tombol Ubah Judul
+        ubahJudulBtn.addEventListener('click', function () {
+            judul.textContent = 'Judul Telah Diubah!';
+        });
+
+        // Event listener untuk tombol Ubah Warna
+        ubahWarnaBtn.addEventListener('click', function () {
+            judul.style.color = judul.style.color === 'red' ? 'blue' : 'red';
+        });
+
+        // Event listener untuk tombol Ubah Paragraf
+        ubahParagrafBtn.addEventListener('click', function () {
+            paragraf.textContent = 'Teks paragraf telah diubah melalui tombol Ubah Paragraf!';
+        });
+    </script>
+</body>
+
+</html>

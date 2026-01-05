@@ -1,0 +1,32 @@
+/* Style umum */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0c5bb4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container untuk mengatur tata letak box */
+.container {
+  display: flex;
+  flex-direction: column; /* Box ditumpuk ke bawah */
+  gap: 20px; /* Jarak antar box */
+  max-width: 800px;
+  margin: 0 auto; /* Tengah halaman */
+}
+
+/* Style setiap box */
+.box {
+  background-color: #10d2c2;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  line-height: 1.5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efek saat hover */
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}

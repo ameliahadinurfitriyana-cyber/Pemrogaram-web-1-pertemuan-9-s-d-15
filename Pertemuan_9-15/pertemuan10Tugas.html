@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Pertemuan 10</title>
+</head>
+
+<body>
+    <h1>Tugas JavaScript Lanjutan</h1>
+
+    <!-- Input nilai dan tombol cek grade -->
+    <input type="number" id="nilaiInput" placeholder="Masukkan nilai">
+    <button onclick="cekGrade()">Cek Grade</button>
+    <p id="gradeOutput"></p>
+
+    <!-- Tombol tampil teman -->
+    <button onclick="tampilTeman()">Tampil Daftar Teman</button>
+    <div id="temanOutput"></div>
+
+    <!-- Tombol hitung luas lingkaran -->
+    <button onclick="hitungLuasLingkaran(5)">Hitung Luas Lingkaran (r=5)</button>
+    <p id="luasOutput"></p>
+
+    <!-- Tombol callback -->
+    <button onclick="jalankanCallback()">Jalankan Callback (Penjumlahan)</button>
+    <p id="callbackOutput"></p>
+
+    <script>
+        // Fungsi untuk cek grade menggunakan if-else
+        function cekGrade() {
+            let nilai = parseInt(document.getElementById('nilaiInput').value);
+            let grade;
+            if (nilai >= 90) {
+                grade = 'A';
+            } else if (nilai >= 80) {
+                grade = 'B';
+            } else if (nilai >= 70) {
+                grade = 'C';
+            } else if (nilai >= 60) {
+                grade = 'D';
+            } else {
+                grade = 'E';
+            }
+            document.getElementById('gradeOutput').innerHTML = `Grade: ${grade}`;
+        }
+
+        // Array daftar teman
+        let teman = ["Andi", "Budi", "Cici", "Dedi", "Eka"];
+
+        // Fungsi tampil teman menggunakan for loop
+        function tampilTeman() {
+            let output = "<ul>";
+            for (let i = 0; i < teman.length; i++) {
+                output += `<li>${teman[i]}</li>`;
+            }
+            output += "</ul>";
+            document.getElementById('temanOutput').innerHTML = output;
+        }
+
+        // Fungsi arrow untuk hitung luas lingkaran
+        const hitungLuasLingkaran = (r) => {
+            let luas = Math.PI * r * r;
+            document.getElementById('luasOutput').innerHTML = `Luas lingkaran dengan jari-jari ${r} adalah ${luas.toFixed(2)}`;
+        };
+
+        // Fungsi callback sederhana
+        function hitung(angka1, angka2, operasi) {
+            return operasi(angka1, angka2);
+        }
+
+        function penjumlahan(a, b) {
+            return a + b;
+        }
+
+        function perkalian(a, b) {
+            return a * b;
+        }
+
+        function jalankanCallback() {
+            let hasil = hitung(5, 3, penjumlahan);
+            document.getElementById('callbackOutput').innerHTML = `Hasil penjumlahan 5 + 3 = ${hasil}`;
+        }
+    </script>
+</body>
+
+</html>

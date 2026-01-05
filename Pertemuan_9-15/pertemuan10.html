@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript Lanjutan</title>
+</head>
+
+<body>
+  <h1>Demo JavaScript Lanjutan</h1>
+  <button onclick="cekNilai(85)">Cek Nilai</button>
+  <button onclick="tampilHobi()">Tampil Hobi</button>
+
+  <p id="output"></p>
+
+  <script>
+    // Struktur Kontrol
+    function cekNilai(nilai) {
+      if (nilai >= 80) {
+        document.getElementById("output").innerHTML = "Nilai A";
+      } else if (nilai >= 60) {
+        document.getElementById("output").innerHTML = "Nilai B";
+      } else {
+        document.getElementById("output").innerHTML = "Nilai C";
+      }
+    }
+
+    // Array
+    let hobi = ["Membaca", "Menulis", "Olahraga"];
+    function tampilHobi() {
+      let teks = "";
+      hobi.forEach(function (item, i) {
+        teks += (i + 1) + ". " + item + "<br>";
+      });
+      document.getElementById("output").innerHTML = teks;
+    }
+
+    // Fungsi Arrow
+    const sapa = (nama) => "Halo, " + nama + "!";
+    console.log(sapa("Andi"));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kalkulator dan Registrasi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5a6fd8;
+        }
+
+        #error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .calculator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .calculator input,
+        .calculator select {
+            width: 200px;
+            margin: 5px;
+        }
+
+        .calculator button {
+            width: 200px;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2ecc71;
+            margin-top: 10px;
+        }
+
+        .color-changer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #teks {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Form Registrasi</h2>
+        <form onsubmit="return validasi()">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+
+            <button type="submit">Daftar</button>
+        </form>
+
+        <form onsubmit="return cekForm()">
+            <label for="nama2">Nama:</label>
+            <input type="text" id="nama2">
+            <button type="submit">Kirim</button>
+        </form>
+
+        <p id="error"></p>
+    </div>
+
+    <div class="container">
+        <h2>Kalkulator Sederhana</h2>
+        <div class="calculator">
+            <input type="number" id="num1" placeholder="Angka pertama">
+            <input type="number" id="num2" placeholder="Angka kedua">
+            <select id="operation">
+                <option value="add">Tambah (+)</option>
+                <option value="subtract">Kurang (-)</option>
+                <option value="multiply">Kali (*)</option>
+                <option value="divide">Bagi (/)</option>
+            </select>
+            <button onclick="calculate()">Hitung</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <div class="container color-changer">
+        <h2>Ubah Warna Teks</h2>
+        <select onchange="ubahWarna(this.value)">
+            <option value="red">Merah</option>
+            <option value="blue">Biru</option>
+            <option value="green">Hijau</option>
+            <option value="black">Hitam</option>
+        </select>
+        <p id="teks">Ubah warna saya!</p>
+    </div>
+
+    <script>
+        function cekForm() {
+            let nama = document.getElementById("nama2").value;
+            if (nama === "") {
+                alert("Nama tidak boleh kosong!");
+                return false;
+            }
+            return true;
+        }
+
+        function ubahWarna(warna) {
+            document.getElementById("teks").style.color = warna;
+        }
+
+        function validasi() {
+            let nama = document.getElementById("nama").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let errorMsg = "";
+
+            if (nama === "") {
+                errorMsg += "Nama wajib diisi.<br>";
+            }
+            if (email.indexOf("@") === -1) {
+                errorMsg += "Email tidak valid.<br>";
+            }
+            if (password.length < 6) {
+                errorMsg += "Password minimal 6 karakter.<br>";
+            }
+
+            if (errorMsg !== "") {
+                document.getElementById("error").innerHTML = errorMsg;
+                return false;
+            }
+
+            alert("Form berhasil dikirim!");
+            return true;
+        }
+
+        function calculate() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operation = document.getElementById("operation").value;
+            let result = 0;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").innerText = "Masukkan angka yang valid!";
+                return;
+            }
+
+            switch (operation) {
+                case "add":
+                    result = num1 + num2;
+                    break;
+                case "subtract":
+                    result = num1 - num2;
+                    break;
+                case "multiply":
+                    result = num1 * num2;
+                    break;
+                case "divide":
+                    if (num2 === 0) {
+                        document.getElementById("result").innerText = "Tidak bisa bagi dengan nol!";
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+
+            document.getElementById("result").innerText = "Hasil: " + result;
+        }
+    </script>
+</body>
+
+</html>

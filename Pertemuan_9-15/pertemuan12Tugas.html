@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Pertemuan 12</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #paragraph {
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tugas Pertemuan 12</h1>
+
+    <!-- Tombol yang menampilkan pesan di halaman -->
+    <button id="showMessageBtn">Tampilkan Pesan</button>
+    <div id="message"></div>
+
+    <!-- Dropdown warna untuk mengubah warna teks paragraf -->
+    <h2>Ubah Warna Teks Paragraf</h2>
+    <select id="colorDropdown">
+        <option value="black">Hitam</option>
+        <option value="red">Merah</option>
+        <option value="blue">Biru</option>
+        <option value="green">Hijau</option>
+    </select>
+    <p id="paragraph">Ini adalah paragraf yang warnanya bisa diubah.</p>
+
+    <!-- Form login sederhana -->
+    <h2>Form Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+    <div id="errorMessage" class="error"></div>
+
+    <script>
+        // Tombol menampilkan pesan
+        document.getElementById('showMessageBtn').addEventListener('click', function () {
+            document.getElementById('message').textContent = 'Pesan ditampilkan di halaman!';
+        });
+
+        // Dropdown warna mengubah warna teks paragraf
+        document.getElementById('colorDropdown').addEventListener('change', function () {
+            const selectedColor = this.value;
+            document.getElementById('paragraph').style.color = selectedColor;
+        });
+
+        // Validasi form login
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('errorMessage');
+
+            errorDiv.textContent = '';
+
+            if (username === '') {
+                errorDiv.textContent = 'Username tidak boleh kosong.';
+                return;
+            }
+
+            if (password.length < 6) {
+                errorDiv.textContent = 'Password minimal 6 karakter.';
+                return;
+            }
+
+            // Jika validasi lolos, tampilkan alert sukses
+            alert('Login berhasil!');
+        });
+    </script>
+</body>
+
+</html>

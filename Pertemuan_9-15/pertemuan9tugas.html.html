@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript Dasar</title>
+</head>
+
+<body>
+  <h1 id="judul">Belajar JavaScript</h1>
+  <p id="output"></p>
+
+  <button onclick="tampilkanData()">Tampilkan Data</button>
+  <hr>
+
+  <h1 id="judul">Rumus Luas Persegi Panjang</h1>
+  <p id="output1"></p>
+
+  <button onclick="tampilkanData1()">Tampilkan Data</button>
+
+  <h1 id="judul">Daftar Hobi</h1>
+  <p id="output2"></p>
+
+  <button onclick="tampilkanData2()">Tampilkan Data</button>
+
+</body>
+
+<script>
+  // Variabel
+  let nama = "Amelia Hadi";
+  let nim = 23040034;
+  let prodi = "Teknik Informatika";
+
+  // Fungsi
+  function tampilkanData() {
+    document.getElementById("output").innerHTML =
+      "Nama: " + nama + "<br>NIM: " + nim + "<br>Prodi: " + prodi;
+  }
+
+  // Variabel
+  let Panjang = 12, Lebar = 8;
+  console.log("Luas Persegi Panjang: " + (Panjang * Lebar));
+
+  // Fungsi
+  function tampilkanData1() {
+    document.getElementById("output1").innerHTML =
+      "Luas Persegi Panjang: " + (Panjang * Lebar);
+  }
+
+  let hobi = "Tidur";
+  let hobi2 = "Makan";
+  let hobi3 = "Main Catur";
+  console.log("Hobi: " + hobi + "<br> " + hobi2 + "<br> " + hobi3);
+
+  function tampilkanData2() {
+    document.getElementById("output2").innerHTML =
+      "Hobi: " + hobi + "<br> " + hobi2 + "<br> " + hobi3;
+  }
+</script>
+
+</html>
